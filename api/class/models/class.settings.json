@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "classes",
+  "info": {
+    "name": "Class",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

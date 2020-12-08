@@ -1,0 +1,171 @@
+[
+    {
+        "username": "Strapi user 1",
+        "email": "user1@strapi.io",
+        "password": "strapiPassword",
+        "confirmed": true,
+        "mobile": "911111111",
+        "subscription":{
+                    "_id": "5fba9fcbb53c61cd02133041",
+                    "description": "Base",
+                    "price": "2,99",
+                    "nrCameras": 2,
+                    "videoMaxQuality": "720p",
+                    "captureStorage": "1024",
+                    "createdAt": "2020-11-22T17:28:43.468Z",
+                    "updatedAt": "2020-11-22T17:28:43.468Z",
+                    "__v": 0,
+                    "id": "5fba9fcbb53c61cd02133041"
+                },
+        "cameras": [{
+                        "_id": "5fba9430139c03ab7b0affca",
+                        "name": "camera 1",
+                        "macAddress": "Mac address 1",
+                        "createdAt": "2020-11-22T16:39:12.769Z",
+                        "updatedAt": "2020-11-22T16:39:12.769Z",
+                        "__v": 0,
+                        "id": "5fba9430139c03ab7b0affca"
+                    }],
+        "notifications": [{
+                            "seen": false,
+                            "_id": "5fba9f5077f983cbd6284709",
+                            "detectionDate": "12/03/2000",
+                            "videoLink": "video link 1",
+                            "createdAt": "2020-11-22T17:26:40.798Z",
+                            "updatedAt": "2020-11-22T17:26:40.810Z",
+                            "__v": 0,
+                            "Camera": {
+                                "_id": "5fba9430139c03ab7b0affcb",
+                                "name": "camera 2",
+                                "macAddress": "Mac address 2",
+                                "createdAt": "2020-11-22T16:39:12.782Z",
+                                "updatedAt": "2020-11-22T16:39:12.782Z",
+                                "__v": 0,
+                                "id": "5fba9430139c03ab7b0affcb"
+                            },
+                            "Classtype": {
+                                "_id": "5fba8d3ea9cb9698bf27bf21",
+                                "NotificationType": 2,
+                                "createdAt": "2020-11-22T16:09:34.240Z",
+                                "updatedAt": "2020-11-22T16:09:34.244Z",
+                                "__v": 0,
+                                "Class": "5fba74e153a8334ac08c35d0",
+                                "id": "5fba8d3ea9cb9698bf27bf21"
+                            },
+                            "id": "5fba9f5077f983cbd6284709"
+                        }]
+    },
+    {
+        "username": "Strapi user 2",
+        "email": "user2@strapi.io",
+        "password": "strapiPassword",
+        "confirmed": true,
+        "mobile": "911111112",
+        "subscription":{
+                    "_id": "5fba9fcbb53c61cd02133041",
+                    "description": "Base",
+                    "price": "2,99",
+                    "nrCameras": 2,
+                    "videoMaxQuality": "720p",
+                    "captureStorage": "1024",
+                    "createdAt": "2020-11-22T17:28:43.468Z",
+                    "updatedAt": "2020-11-22T17:28:43.468Z",
+                    "__v": 0,
+                    "id": "5fba9fcbb53c61cd02133041"
+                },
+        "cameras": [{
+                        "_id": "5fba9430139c03ab7b0affca",
+                        "name": "camera 1",
+                        "macAddress": "Mac address 1",
+                        "createdAt": "2020-11-22T16:39:12.769Z",
+                        "updatedAt": "2020-11-22T16:39:12.769Z",
+                        "__v": 0,
+                        "id": "5fba9430139c03ab7b0affca"
+                    }],
+        "notifications": [{
+                            "seen": false,
+                            "_id": "5fba9f5077f983cbd6284709",
+                            "detectionDate": "12/03/2000",
+                            "videoLink": "video link 1",
+                            "createdAt": "2020-11-22T17:26:40.798Z",
+                            "updatedAt": "2020-11-22T17:26:40.810Z",
+                            "__v": 0,
+                            "Camera": {
+                                "_id": "5fba9430139c03ab7b0affcb",
+                                "name": "camera 2",
+                                "macAddress": "Mac address 2",
+                                "createdAt": "2020-11-22T16:39:12.782Z",
+                                "updatedAt": "2020-11-22T16:39:12.782Z",
+                                "__v": 0,
+                                "id": "5fba9430139c03ab7b0affcb"
+                            },
+                            "Classtype": {
+                                "_id": "5fba8d3ea9cb9698bf27bf21",
+                                "NotificationType": 2,
+                                "createdAt": "2020-11-22T16:09:34.240Z",
+                                "updatedAt": "2020-11-22T16:09:34.244Z",
+                                "__v": 0,
+                                "Class": "5fba74e153a8334ac08c35d0",
+                                "id": "5fba8d3ea9cb9698bf27bf21"
+                            },
+                            "id": "5fba9f5077f983cbd6284709"
+                        }]
+    },
+    {
+        "username": "Strapi user 3",
+        "email": "user3@strapi.io",
+        "password": "strapiPassword",
+        "confirmed": true,
+        "mobile": "911111113",
+        "subscription":{
+                    "_id": "5fba9fcbb53c61cd02133041",
+                    "description": "Base",
+                    "price": "2,99",
+                    "nrCameras": 2,
+                    "videoMaxQuality": "720p",
+                    "captureStorage": "1024",
+                    "createdAt": "2020-11-22T17:28:43.468Z",
+                    "updatedAt": "2020-11-22T17:28:43.468Z",
+                    "__v": 0,
+                    "id": "5fba9fcbb53c61cd02133041"
+                },
+        "cameras": [{
+                        "_id": "5fba9430139c03ab7b0affca",
+                        "name": "camera 1",
+                        "macAddress": "Mac address 1",
+                        "createdAt": "2020-11-22T16:39:12.769Z",
+                        "updatedAt": "2020-11-22T16:39:12.769Z",
+                        "__v": 0,
+                        "id": "5fba9430139c03ab7b0affca"
+                    }],
+        "notifications": [{
+                            "seen": false,
+                            "_id": "5fba9f5077f983cbd6284709",
+                            "detectionDate": "12/03/2000",
+                            "videoLink": "video link 1",
+                            "createdAt": "2020-11-22T17:26:40.798Z",
+                            "updatedAt": "2020-11-22T17:26:40.810Z",
+                            "__v": 0,
+                            "Camera": {
+                                "_id": "5fba9430139c03ab7b0affcb",
+                                "name": "camera 2",
+                                "macAddress": "Mac address 2",
+                                "createdAt": "2020-11-22T16:39:12.782Z",
+                                "updatedAt": "2020-11-22T16:39:12.782Z",
+                                "__v": 0,
+                                "id": "5fba9430139c03ab7b0affcb"
+                            },
+                            "Classtype": {
+                                "_id": "5fba8d3ea9cb9698bf27bf21",
+                                "NotificationType": 2,
+                                "createdAt": "2020-11-22T16:09:34.240Z",
+                                "updatedAt": "2020-11-22T16:09:34.244Z",
+                                "__v": 0,
+                                "Class": "5fba74e153a8334ac08c35d0",
+                                "id": "5fba8d3ea9cb9698bf27bf21"
+                            },
+                            "id": "5fba9f5077f983cbd6284709"
+                        }]
+    }
+
+]

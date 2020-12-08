@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "name": "Notification",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "detectionDate": {
+      "type": "string",
+      "required": true
+    },
+    "videoLink": {
+      "type": "string"
+    },
+    "seen": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Camera": {
+      "model": "camera"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/cameras/seed",
+      "handler": "camera.seed",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cameras",
+      "handler": "camera.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cameras/count",
+      "handler": "camera.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cameras/:id",
+      "handler": "camera.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/cameras",
+      "handler": "camera.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/cameras/:id",
+      "handler": "camera.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/cameras/:id",
+      "handler": "camera.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

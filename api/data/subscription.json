@@ -1,0 +1,23 @@
+[
+	{
+        "description": "Base",
+        "price": "2,99",
+        "nrCameras": 2,
+        "videoMaxQuality": "720p",
+        "captureStorage": "1024"
+    },
+    {
+        "description": "Premium",
+        "price": "4,99",
+        "nrCameras": 4,
+        "videoMaxQuality": "1080p",
+        "captureStorage": "2048"
+    },
+    {
+        "description": "Premium Plus",
+        "price": "7,99",
+        "nrCameras": 6,
+        "videoMaxQuality": "4k",
+        "captureStorage": "102400"
+    }
+]

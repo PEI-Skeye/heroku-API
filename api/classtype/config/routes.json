@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/classtypes/seed",
+      "handler": "classtype.seed",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/classtypes",
+      "handler": "classtype.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/classtypes/count",
+      "handler": "classtype.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/classtypes/:id",
+      "handler": "classtype.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/classtypes",
+      "handler": "classtype.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/classtypes/:id",
+      "handler": "classtype.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/classtypes/:id",
+      "handler": "classtype.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+[{
+    "NotificationType" : 0,
+    "Class" : "dog"
+},
+{
+    "NotificationType" : 2,
+    "Class" : "person"
+}]

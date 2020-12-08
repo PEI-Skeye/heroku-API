@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscriptions",
+  "info": {
+    "name": "Subscription"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "string",
+      "required": true
+    },
+    "nrCameras": {
+      "type": "integer",
+      "required": true
+    },
+    "videoMaxQuality": {
+      "type": "string",
+      "required": true
+    },
+    "captureStorage": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

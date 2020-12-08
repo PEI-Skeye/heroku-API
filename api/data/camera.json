@@ -1,0 +1,12 @@
+[
+  {
+    "name": "camera 1",
+    "macAddress": "Mac address 1",
+    "Classtype": ["5fba8d3ea9cb9698bf27bf21"]
+  },
+  {
+    "name": "camera 2",
+    "macAddress": "Mac address 2",
+    "Classtype": ["5fba8d3ea9cb9698bf27bf21"]
+  }
+]

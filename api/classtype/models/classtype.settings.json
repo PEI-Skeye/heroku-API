@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "Classtype",
+  "info": {
+    "name": "Classtype",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "NotificationType": {
+      "type": "integer",
+      "required": true
+    },
+    "Class": {
+      "model": "class"
+    }
+  }
+}

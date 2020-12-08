@@ -1,0 +1,16 @@
+[
+    {
+        "detectionDate": "12/03/2000",
+        "videoLink": "video link 1",
+        "seen": false,
+        "NotificationType": "720p",
+        "Camera": "5fc8d129a9a60e48bec9dfcb"
+    },
+    {
+        "detectionDate": "12/04/2000",
+        "videoLink": "video link 2",
+        "seen": false,
+        "NotificationType": "720p",
+        "Camera": "5fc8d129a9a60e48bec9dfcb"
+    }
+]
