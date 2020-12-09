@@ -2,11 +2,11 @@
   {
     "name": "camera 1",
     "macAddress": "Mac address 1",
-    "Classtype": ["5fd0cd9b4979a0b2f2de2703"]
+    "Classtype": ["5fd0f275f9c76137509861e0"]
   },
   {
     "name": "camera 2",
     "macAddress": "Mac address 2",
-    "Classtype": ["5fd0cd9b4979a0b2f2de2703"]
+    "Classtype": ["5fd0f275f9c76137509861e0"]
   }
 ]
