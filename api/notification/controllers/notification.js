@@ -1,5 +1,6 @@
 "use strict";
 
+const classtype = require("../../classtype/controllers/classtype");
 const { seed } = require("../../classtype/controllers/classtype");
 
 /**
@@ -12,20 +13,20 @@ module.exports = {
     var user = ctx.request.body.idUser;
     var camera = ctx.request.body.idCamera;
     var timestamp = ctx.request.body.timestamp;
-    var classes = ctx.request.body.Classes;
+    var classes = ctx.request.body.classes;
     var url = ctx.request.body.urlVideo;
     var cam = await strapi.api.camera.services.camera.findOne({
       _id: camera,
     });
-    console.log(classes);
+    //console.log("---- CLASSES : " + classes);
     for (var classe of classes) {
+      //console.log("+++++ CLASS : " + classe);
       for (var classeType of cam.classtypes) {
-        const classObj = await strapi.services.class.findOne({
-          description: classe,
-        });
-        const classDesc = classObj.description;
-        console.log(`comparing ${classDesc} with ${classe}`);
-        if (classe === classDesc) {
+        var aux = await strapi.services.class.findOne( { _id: classeType.Class });
+        var ct = aux.description;
+        //console.log("+++++ CLASSTYPES : " + ct);
+        //console.log(`comparing ${ct} with ${classe}`);
+        if (classe === ct) {
           var obj = {
             detectionDate: timestamp,
             videoLink: url,
@@ -34,30 +35,18 @@ module.exports = {
             Camera: camera,
           };
           await strapi.services.notification.create(obj);
-          return "success";
-        } else return "Class not found";
+          //return "success";
+        } //else return "Class not found";
       }
     }
   },
+
   async seed(ctx) {
+    const axios = require('axios').default;
     var json = require("../../data/notification.json");
     for (var obj of json) {
-      var dectDate = obj.detectionDate;
-      var vidLink = obj.videoLink;
-      var seen = obj.seen;
-
-      var cam = await strapi.api.camera.services.camera.findOne({
-        _id: obj.Camera,
-      });
-
-      var obj = {
-        detectionDate: dectDate,
-        videoLink: vidLink,
-        seen: seen,
-        Camera: cam,
-      };
-      await strapi.services.notification.create(obj);
+      axios.post("http://localhost:1337/notifications/yolo", obj);
     }
-    return "Success";
+    return "success";
   },
 };
