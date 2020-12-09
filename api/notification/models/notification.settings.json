@@ -25,6 +25,9 @@
     },
     "Camera": {
       "model": "camera"
+    },
+    "classtype": {
+      "model": "classtype"
     }
   }
 }
