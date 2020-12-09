@@ -8,6 +8,30 @@ const { seed } = require("../../classtype/controllers/classtype");
  */
 
 module.exports = {
+  async postYolo(ctx) {
+    var user = ctx.idUser;
+    var camera = ctx.idCamera;
+    var timestamp = ctx.timestamp;
+    var classes = ctx.Classes;
+    var url = ctx.urlVideo;
+    var cam = await strapi.api.camera.services.camera.findOne({
+      _id: camera,
+    });
+    for(classe of classes){
+      for(classeType of cam.classType) {
+        if(classe = classeType.Class.description) {
+          var obj = {
+            detectionDate: timestamp,
+            videoLink: url,
+            seen: false,
+            notificationType: classeType.NotificationType,
+            Camera: camera,
+          };
+          await strapi.services.notification.create(obj);
+        }
+      }
+    }
+  },
   async seed(ctx) {
     var json = require("../../data/notification.json");
     for (var obj of json) {
