@@ -7,10 +7,12 @@ const { seed } = require("../../classtype/controllers/classtype");
  * Read the documentation (https://strapi.io/documentation/v3.x/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
-
+const endpoint = "http://skeye-backend.herokuapp.com";
+// const endpoint = "http://127.0.0.1:1337";
 module.exports = {
   async postYolo(ctx) {
-    var user = ctx.request.body.idUser;
+    const axios = require("axios");
+    var userid = ctx.request.body.idUser;
     var camera = ctx.request.body.idCamera;
     var timestamp = ctx.request.body.timestamp;
     var classes = ctx.request.body.classes;
@@ -18,11 +20,14 @@ module.exports = {
     var cam = await strapi.api.camera.services.camera.findOne({
       _id: camera,
     });
+    const notis = [];
     //console.log("---- CLASSES : " + classes);
     for (var classe of classes) {
       //console.log("+++++ CLASS : " + classe);
       for (var classeType of cam.classtypes) {
-        var aux = await strapi.services.class.findOne( { _id: classeType.Class });
+        var aux = await strapi.services.class.findOne({
+          _id: classeType.Class,
+        });
         var ct = aux.description;
         //console.log("+++++ CLASSTYPES : " + ct);
         //console.log(`comparing ${ct} with ${classe}`);
@@ -34,18 +39,49 @@ module.exports = {
             classtype: classeType,
             Camera: camera,
           };
-          await strapi.services.notification.create(obj);
+          var noti = await strapi.services.notification.create(obj);
+
+          console.log(noti);
+
+          // var usr = await strapi.services.users.findOne({
+          //   _id: userid,
+          // });
+          console.log("\n\n\n\n\n\n\n\n\n----------------NOTIS\n");
+          notis.push(noti);
+          console.log(notis);
+          console.log("----------------NOTIS\n\n\n\n\n\n\n\n\n\n");
           //return "success";
         } //else return "Class not found";
       }
     }
+    await axios
+      .get(`${endpoint}/users/${userid}`)
+      .then((usr) => {
+        console.log("----------------USER\n");
+        for (var no of notis) {
+          usr.data.notifications.push(no);
+          console.log("\n\n\n\n\n\n\n\n\n----------------USR DATA NOTIS\n");
+          console.log(usr.data.notifications);
+          console.log("----------------USR DATA NOTIS\n\n\n\n\n\n\n\n\n\n");
+        }
+
+        console.log(usr.data);
+        axios.put(`${endpoint}/users/${userid}`, usr.data).catch((error) => {
+          console.log("----------------ERROR USER 2\n");
+        });
+      })
+      .catch((error) => {
+        console.log("----------------ERROR USER\n");
+      });
   },
 
   async seed(ctx) {
-    const axios = require('axios').default;
+    const axios = require("axios").default;
     var json = require("../../data/notification.json");
     for (var obj of json) {
-      axios.post("http://localhost:1337/notifications/yolo", obj);
+      await axios.post(`${endpoint}/notifications/yolo`, obj).catch((error) => {
+        console.log("Notifications error:" + error.message);
+      });
     }
     return "success";
   },
