@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/notifications/notifclas",
+      "handler": "notification.findnoti",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/notifications/count",
       "handler": "notification.count",
       "config": {
@@ -26,24 +34,8 @@
     },
     {
       "method": "POST",
-      "path": "/notifications/seed",
-      "handler": "notification.seed",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
       "path": "/notifications",
       "handler": "notification.create",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/notifications/yolo",
-      "handler": "notification.postYolo",
       "config": {
         "policies": []
       }
