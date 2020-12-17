@@ -55,6 +55,8 @@ module.exports = {
       }
     }
 
-    return "Success";
+    return await strapi.plugins["users-permissions"].services.user.fetch({
+      _id: userid,
+    });
   },
 };
