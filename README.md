@@ -55,6 +55,8 @@ Requests documentation
             -> GET '/notifications' - lists all notifications
             -> GET '/notifications/count' - counts all notifications
             -> GET '/notifications/:id' - shows one notification by id
+            -> GET '/notifications/notifclas' - show all notifications with complete class object
+            -> GET '/notifications/notifclas/:id' - show notification by id with complete class object
         POSTS
             -> POST '/notifications' - adds one notification
                 Body: {
@@ -148,6 +150,7 @@ Requests documentation
             -> GET '/users' - lists all users
             -> GET '/users/count' - counts all users
             -> GET '/users/:id' - shows one user
+            -> GET '/users-permissions/users/notifications/:id' - returns all user's notificications by user id
         POSTS
             -> POST '/users' - adds one user to the system
                 Body:
@@ -265,6 +268,7 @@ Requests documentation
                                             "id": "5fba9f5077f983cbd6284709"
                                         }]
                     }
+            -> PUT '/users-permissions/users/notifications/:id' - Changes all users notifications state to seen = true
 
         DELETE
             -> DELETE '/users/:id' - Apaga um user 
