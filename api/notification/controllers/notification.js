@@ -36,32 +36,32 @@ module.exports = {
       finalNotis.push(notif);
     }
     return finalNotis;
-    // return finalNotis;
+  },
+  async findnotibyid(ctx) {
+    const axios = require("axios");
     // return notificationse;
-    // const axios = require("axios");
-    // await axios
-    //   .get(`${endpoint}/notifications`)
-    //   .then((notis) => {
-    //     for (var noti of notis) {
-    //       notiClass = axios.get(`${endpoint}/classes/${noti.classtype.Class}`);
-    //       notif = {
-    //         seen: noti.seen,
-    //         _id: noti._id,
-    //         detectionDate: noti.detectionDate,
-    //         videoLink: noti.videoLink,
-    //         createdAt: noti.createdAt,
-    //         updatedAt: noti.updatedAt,
-    //         Camera: noti.Camera,
-    //         classtype: noti.classtype,
-    //         Class: notiClass,
-    //       };
-    //       finalNotis.push(noti);
-    //     }
-    //     return notis;
-    //   })
-    //   .catch((error) => {
-    //     console.log(`----------------ERROR Notis: ${error}\n`);
-    //   });
+    console.log(ctx.params);
+    const noti = await strapi.api.notification.services.notification.findOne({
+      _id: ctx.params.id,
+    });
+    const notiClass = await strapi.api.class.services.class.findOne({
+      _id: noti.classtype.Class,
+    });
+
+    console.log(notiClass);
+    const notif = {
+      seen: noti.seen,
+      _id: noti._id,
+      detectionDate: noti.detectionDate,
+      videoLink: noti.videoLink,
+      createdAt: noti.createdAt,
+      updatedAt: noti.updatedAt,
+      Camera: noti.Camera,
+      classtype: noti.classtype,
+      Class: notiClass,
+    };
+
+    return notif;
   },
   //   async postYolo(ctx) {
   //     const axios = require("axios");

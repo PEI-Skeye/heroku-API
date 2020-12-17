@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/notifications/notifclas/:id",
+      "handler": "notification.findnotibyid",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/notifications/count",
       "handler": "notification.count",
       "config": {
