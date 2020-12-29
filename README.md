@@ -112,7 +112,7 @@ Requests documentation
                 Body: {
                         "name": "camera 3 edited",
                         "macAddress": "Mac address 3 edited",
-                        "Classtype": "5fba8d3ea9cb9698bf27bf21"
+                        "Classtype": ["5fba8d3ea9cb9698bf27bf21"]
                         }
             -> PUT '/cameras/classtype/:id' - add classtype to camera
                 Body: {
