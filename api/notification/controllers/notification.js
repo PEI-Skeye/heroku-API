@@ -37,6 +37,7 @@ module.exports = {
     }
     return finalNotis;
   },
+
   async findnotibyid(ctx) {
     const axios = require("axios");
     // return notificationse;
@@ -63,6 +64,7 @@ module.exports = {
 
     return notif;
   },
+
   //   async postYolo(ctx) {
   //     const axios = require("axios");
   //     var userid = ctx.request.body.idUser;

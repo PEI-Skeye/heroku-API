@@ -5,21 +5,21 @@ Requests documentation
 
 -------------------------------------------------------------------------------------
 
-    - Class 
+    - Class
         GETS
             -> GET '/classes' - List all Classes
             -> GET '/classes/count' - Count all classes in the system
             -> GET '/classes/:description' - Find class by description
         POSTS
             -> POST '/classes/seed' - Populate classes DB
-            -> POST '/classes' - Add one class to the DB    
+            -> POST '/classes' - Add one class to the DB
                 Body: {
-                        "description": "Class 1 edited"    
+                        "description": "Class 1 edited"
                     }
         PUT
-            -> PUT '/classes/:id' - Edits one classe's info    
+            -> PUT '/classes/:id' - Edits one classe's info
                 Body: {
-                        "description": "Class 1 edited"    
+                        "description": "Class 1 edited"
                     }
         DELETE
             -> DELETE '/classes/:id' -> removes the class from DB
@@ -34,18 +34,23 @@ Requests documentation
 
         POSTS
             -> POST '/classtypes/seed' - Populate classTypes DB
-            -> POST '/classtypes' - Add one class to the DB    
+            -> POST '/classtypes' - Add one class to the DB
                 Body: {
                             "NotificationType" : 2,
                             "Class" : "5fba703366da032417175706"
-                    }
+                      }
+            -> POST '/classtypes/addbyclassname'
+                Body: {
+                            "NotificationType" : 2,
+                            "Class" : "dog"
+                      }
         PUT
             -> PUT '/classtypes/:id' - Edits one classtype's info
             Body: {
                     "NotificationType" : 4,
                     "Class" : "5fba703366da032417175706"
-                }
-        DELETE 
+                  }
+        DELETE
             -> DELETE '/classtypes/:id' - removes the classtype from DB
 
 ------------------------------------------------------------------------------------
@@ -109,6 +114,11 @@ Requests documentation
                         "macAddress": "Mac address 3 edited",
                         "Classtype": "5fba8d3ea9cb9698bf27bf21"
                         }
+            -> PUT '/cameras/classtype/:id' - add classtype to camera
+                Body: {
+                            "NotificationType" : 2,
+                            "Class" : "dog"
+                      }
         DELETE
             -> DELETE '/cameras/:id' - removes one camera from the system
 
@@ -271,7 +281,7 @@ Requests documentation
             -> PUT '/users-permissions/users/notifications/:id' - Changes all users notifications state to seen = true
 
         DELETE
-            -> DELETE '/users/:id' - Apaga um user 
+            -> DELETE '/users/:id' - Apaga um user
 
 ------------------------------------------------------------------------------------
 
@@ -280,6 +290,6 @@ Requests documentation
 Order for populating the DB
     - Class
     - ClassTypes
-    - Cameras 
+    - Cameras
     - Notification
     - Subscription
