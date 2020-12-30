@@ -1,14 +1,6 @@
 {
   "routes": [
     {
-      "method": "POST",
-      "path": "/classtypes/seed",
-      "handler": "classtype.seed",
-      "config": {
-        "policies": []
-      }
-    },
-    {
       "method": "GET",
       "path": "/classtypes",
       "handler": "classtype.find",
@@ -36,6 +28,22 @@
       "method": "POST",
       "path": "/classtypes",
       "handler": "classtype.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/classtypes/seed",
+      "handler": "classtype.seed",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/classtypes/addbyclassname",
+      "handler": "classtype.addbyclassname",
       "config": {
         "policies": []
       }
