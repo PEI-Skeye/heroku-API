@@ -22,6 +22,12 @@
     },
     "classtypes": {
       "collection": "classtype"
+    },
+    "videoLink": {
+      "type": "string",
+      "required": false,
+      "private": false,
+      "unique": true
     }
   }
 }
