@@ -279,6 +279,8 @@ Requests documentation
                                         }]
                     }
             -> PUT '/users-permissions/users/notifications/:id' - Changes all users notifications state to seen = true
+            
+            -> PUT '/users/cameras/:id' - Adds one camera to the user
 
         DELETE
             -> DELETE '/users/:id' - Apaga um user
