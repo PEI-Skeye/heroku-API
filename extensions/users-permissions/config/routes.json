@@ -15,6 +15,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "PUT",
+      "path": "/users/cameras/:id",
+      "handler": "user.addUserCamera",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
