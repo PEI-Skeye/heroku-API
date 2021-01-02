@@ -281,6 +281,18 @@ Requests documentation
             -> PUT '/users-permissions/users/notifications/:id' - Changes all users notifications state to seen = true
             
             -> PUT '/users/cameras/:id' - Adds one camera to the user
+            body:
+                {
+                    "classTypes":[{
+                        "Class":"5fda3abdb72d6002e65f2948",
+                        "NotificationType": 12
+                    },{
+                        "Class":"5fda3abcb72d6002e65f2941",
+                        "NotificationType": 13
+                    }],
+                    "macAddr":"macTest2",
+                    "name":"cameraTest2"
+                }
 
         DELETE
             -> DELETE '/users/:id' - Apaga um user
