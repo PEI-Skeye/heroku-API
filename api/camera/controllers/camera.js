@@ -129,7 +129,7 @@ module.exports = {
     try {
       axios.put(`${route}/cameras/${cameraId}`, cameraObj).then((response) => {
         let json = response.data;
-        console.log(json);
+        msg = json;
       });
     } catch (error) {
       console.log(error);
