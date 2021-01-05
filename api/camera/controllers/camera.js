@@ -70,7 +70,6 @@ module.exports = {
   },
   async updateCamClassType(ctx) {
     const axios = require("axios");
-    const CircularJSON = require("circular-json");
     const cameraId = ctx.params.id;
     const camObj = ctx.request.body;
     //Creates all classtypes and puts them into an array with the right format
