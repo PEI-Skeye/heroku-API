@@ -57,6 +57,14 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/cameras/classtypes/:id",
+      "handler": "camera.updateCamClassType",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/cameras/:id",
       "handler": "camera.delete",
