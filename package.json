@@ -13,10 +13,11 @@
   "dependencies": {
     "braces": "^3.0.2",
     "chokidar": "^3.4.3",
+    "circular-json": "^0.5.9",
     "jquery": "^3.5.1",
     "readdirp": "^3.5.0",
     "strapi": "3.3.3",
-    "strapi-admin": "3.3.3",
+    "strapi-admin": "^3.4.1",
     "strapi-connector-mongoose": "3.3.3",
     "strapi-plugin-content-manager": "3.3.3",
     "strapi-plugin-content-type-builder": "3.3.3",

@@ -5,10 +5,11 @@
  * to customize this controller
  */
 
-const { addbyclassname } = require("../../../api/classtype/controllers/classtype");
-
+const {
+  addbyclassname,
+} = require("../../../api/classtype/controllers/classtype");
+const route = "http://skeye-backend.herokuapp.com";
 module.exports = {
-
   async addclasstype(ctx) {
     const axios = require("axios");
     const cameraId = ctx.params.id;
@@ -24,7 +25,7 @@ module.exports = {
       });
       // console.log("Type = " + type);
       // console.log("Class = " + classes.description);
-      if (type==body.NotificationType && classes.description==body.Class){
+      if (type == body.NotificationType && classes.description == body.Class) {
         return "ClassType already exists for this Camera!";
       }
     }
@@ -34,7 +35,10 @@ module.exports = {
     // console.log("1 = " + JSON.stringify(camera.classtypes.length));
     camera.classtypes.push(claTy._id);
     // console.log("2 = " + JSON.stringify(camera.classtypes.length));
-    var response = await strapi.services.camera.update({ id: cameraId }, camera);
+    var response = await strapi.services.camera.update(
+      { id: cameraId },
+      camera
+    );
     return response;
   },
 
@@ -63,5 +67,79 @@ module.exports = {
       await strapi.services.camera.create(obj);
     }
     return "Success";
+  },
+  async updateCamClassType(ctx) {
+    const axios = require("axios");
+    const CircularJSON = require("circular-json");
+    const cameraId = ctx.params.id;
+    const camObj = ctx.request.body;
+    //Creates all classtypes and puts them into an array with the right format
+    let claList = [];
+    for (var obj of camObj.classTypes) {
+      const cl = await strapi.api.class.services.class.findOne({
+        id: obj.Class,
+      });
+
+      var classTypeObj = {
+        request: {
+          body: {
+            Class: cl.description,
+            NotificationType: obj.NotificationType,
+          },
+        },
+      };
+      const classTypeResponse = await addbyclassname(classTypeObj);
+
+      const ClaTypeObjCamera = {
+        _id: classTypeResponse._id,
+        NotificationType: classTypeResponse.NotificationType,
+        createdAt: classTypeResponse.createdAt,
+        updatedAt: classTypeResponse.updatedAt,
+        __v: classTypeResponse.__v,
+        Class: classTypeResponse.Class._id,
+        id: classTypeResponse.Class.id,
+      };
+      claList.push(ClaTypeObjCamera);
+    }
+    const previousCamera = await strapi.api.camera.services.camera.findOne({
+      _id: cameraId,
+    });
+    delete previousCamera["_v"];
+    let cameraObj = previousCamera;
+
+    if (camObj.link) {
+      cameraObj = {
+        name: camObj.name,
+        macAddress: camObj.macAddr,
+        classtypes: claList,
+        createdAt: previousCamera.createdAt,
+        id: previousCamera.id,
+        videoLink: camObj.link,
+      };
+    } else {
+      cameraObj = {
+        name: camObj.name,
+        macAddress: camObj.macAddr,
+        classtypes: claList,
+        createdAt: previousCamera.createdAt,
+        id: previousCamera.id,
+      };
+    }
+    console.log(cameraObj);
+    let msg = {};
+    try {
+      axios.put(`${route}/cameras/${cameraId}`, cameraObj).then((response) => {
+        let json = response.data;
+        console.log(json);
+      });
+    } catch (error) {
+      console.log(error);
+      msg = error;
+    }
+    // const cameraCreated = await strapi.api.camera.services.camera.update(
+    //   cameraId,
+    //   cameraObj
+    // );
+    return msg;
   },
 };
