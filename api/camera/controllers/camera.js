@@ -124,17 +124,23 @@ module.exports = {
         id: previousCamera.id,
       };
     }
-    console.log(cameraObj);
-    let msg = {};
-    try {
-      axios.put(`${route}/cameras/${cameraId}`, cameraObj).then((response) => {
-        let json = response.data;
-        msg = json;
-      });
-    } catch (error) {
-      console.log(error);
-      msg = error;
-    }
+    //console.log(cameraObj);
+    var msg = {};
+
+    await axios
+      .put(`${route}/cameras/${cameraId}`, cameraObj)
+      .then((response) => {
+        msg = response.data;
+        let ctIdsArr = [];
+        for (var i of msg.classtypes) {
+          ctIdsArr.push(i._id);
+        }
+        msg.classtypes = ctIdsArr;
+      })
+      .catch((err) => (msg = err));
+
+    console.log("###########################################");
+    console.log(msg);
     // const cameraCreated = await strapi.api.camera.services.camera.update(
     //   cameraId,
     //   cameraObj
