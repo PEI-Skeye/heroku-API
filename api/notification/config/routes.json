@@ -49,6 +49,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/notifications/yolo",
+      "handler": "notification.postYolo",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/notifications/:id",
       "handler": "notification.update",
