@@ -95,9 +95,9 @@ module.exports = {
             Camera: camera,
           };
           var noti = await strapi.services.notification.create(obj);
-          axios.post(`${endpoint}/notifications/`, obj).catch((error) => {
-            console.log(`----------------Notification Add Error: ${error}\n`);
-          });
+          // axios.post(`${endpoint}/notifications/`, obj).catch((error) => {
+          //   console.log(`----------------Notification Add Error: ${error}\n`);
+          // });
 
           console.log(noti);
 
