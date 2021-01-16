@@ -50,7 +50,7 @@
     },
     {
       "method": "POST",
-      "path": "/notifications/yoloaux",
+      "path": "/notifications/yolo",
       "handler": "notification.postYolo",
       "config": {
         "policies": []
