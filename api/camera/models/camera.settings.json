@@ -27,7 +27,7 @@
       "type": "string",
       "required": false,
       "private": false,
-      "unique": true
+      "unique": false
     }
   }
 }
