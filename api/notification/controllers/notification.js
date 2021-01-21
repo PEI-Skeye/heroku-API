@@ -130,6 +130,8 @@ module.exports = {
       })
       .catch((error) => {
         console.log("----------------ERROR USER\n");
+        return error;
       });
+    return "Success";
   },
 };
