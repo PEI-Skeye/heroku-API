@@ -106,6 +106,7 @@ module.exports = {
       // claList.push(ClaTypeObjCamera);
 
       claList.push(classTypeResponse._id);
+      //console.log(classTypeResponse);
     }
 
     //create and post the camera object
