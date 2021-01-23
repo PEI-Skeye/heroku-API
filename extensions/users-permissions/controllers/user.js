@@ -93,16 +93,18 @@ module.exports = {
       };
       const classTypeResponse = await addbyclassname(classTypeObj);
 
-      const ClaTypeObjCamera = {
-        _id: classTypeResponse._id,
-        NotificationType: classTypeResponse.NotificationType,
-        createdAt: classTypeResponse.createdAt,
-        updatedAt: classTypeResponse.updatedAt,
-        __v: classTypeResponse.__v,
-        Class: classTypeResponse.Class._id,
-        id: classTypeResponse.Class.id,
-      };
-      claList.push(ClaTypeObjCamera);
+      // const ClaTypeObjCamera = {
+      //   _id: classTypeResponse._id,
+      //   NotificationType: classTypeResponse.NotificationType,
+      //   createdAt: classTypeResponse.createdAt,
+      //   updatedAt: classTypeResponse.updatedAt,
+      //   __v: classTypeResponse.__v,
+      //   Class: classTypeResponse.Class._id,
+      //   id: classTypeResponse.Class.id,
+      // };
+      // claList.push(ClaTypeObjCamera);
+
+      claList.push(classTypeResponse._id);
     }
 
     //create and post the camera object
