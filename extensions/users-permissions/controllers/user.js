@@ -92,11 +92,8 @@ module.exports = {
           },
         },
       };
-      // const classTypeResponse = await addbyclassname(classTypeObj);
-      const classTypeResponse = await axios.post(
-        `${endpoint}/classtypes/addbyclassname`,
-        classTypeObj
-      );
+      const classTypeResponse = await addbyclassname(classTypeObj);
+
       // const ClaTypeObjCamera = {
       //   _id: classTypeResponse._id,
       //   NotificationType: classTypeResponse.NotificationType,
