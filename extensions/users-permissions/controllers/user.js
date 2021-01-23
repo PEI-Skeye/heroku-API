@@ -78,7 +78,6 @@ module.exports = {
     // }
     let claList = [];
     //Creates all classtypes and puts them into an array with the right format
-    await CreateClasstypes(camObj.classTypes);
     for (var obj of camObj.classTypes) {
       const cl = await strapi.api.class.services.class.findOne({
         id: obj.Class,
@@ -105,7 +104,7 @@ module.exports = {
       // };
       // claList.push(ClaTypeObjCamera);
 
-      claList.push(classTypeResponse._id);
+      claList.push(ClaTypeObjCamera);
     }
 
     //create and post the camera object
