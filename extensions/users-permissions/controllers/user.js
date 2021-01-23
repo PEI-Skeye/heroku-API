@@ -64,6 +64,7 @@ module.exports = {
   },
 
   async addUserCamera(ctx) {
+    const axios = require("axios");
     const userId = ctx.params.id;
     const camObj = ctx.request.body;
     //   {
@@ -91,8 +92,11 @@ module.exports = {
           },
         },
       };
-      const classTypeResponse = await addbyclassname(classTypeObj);
-
+      // const classTypeResponse = await addbyclassname(classTypeObj);
+      const classTypeResponse = await axios.post(
+        "classtypes/addbyclassname",
+        classTypeObj
+      );
       // const ClaTypeObjCamera = {
       //   _id: classTypeResponse._id,
       //   NotificationType: classTypeResponse.NotificationType,
