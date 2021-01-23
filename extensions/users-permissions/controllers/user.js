@@ -94,7 +94,7 @@ module.exports = {
       };
       // const classTypeResponse = await addbyclassname(classTypeObj);
       const classTypeResponse = await axios.post(
-        "classtypes/addbyclassname",
+        `${endpoint}/classtypes/addbyclassname`,
         classTypeObj
       );
       // const ClaTypeObjCamera = {
