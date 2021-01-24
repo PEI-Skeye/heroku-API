@@ -63,27 +63,8 @@ module.exports = {
     });
   },
 
-  async CreateClasstypes(classtypes) {
-    var claList = [];
-    for (var obj of classtypes) {
-      const cl = await strapi.api.class.services.class.findOne({
-        id: obj.Class,
-      });
-      var classTypeObj = {
-        request: {
-          body: {
-            Class: cl.description,
-            NotificationType: obj.NotificationType,
-          },
-        },
-      };
-      const classTypeResponse = await addbyclassname(classTypeObj);
-      claList.push(classTypeResponse._id);
-    }
-    return claList;
-  },
-
   async addUserCamera(ctx) {
+    const axios = require("axios");
     const userId = ctx.params.id;
     const camObj = ctx.request.body;
     //   {
@@ -96,37 +77,37 @@ module.exports = {
     //     "macAddr": "mac1",
     //     "name": "camera1"
     // }
-    // let claList = [];
+    let claList = [];
     //Creates all classtypes and puts them into an array with the right format
-    const claList = await CreateClasstypes(camObj.classTypes);
-    // for (var obj of camObj.classTypes) {
-    //   const cl = await strapi.api.class.services.class.findOne({
-    //     id: obj.Class,
-    //   });
+    for (var obj of camObj.classTypes) {
+      const cl = await strapi.api.class.services.class.findOne({
+        id: obj.Class,
+      });
 
-    //   var classTypeObj = {
-    //     request: {
-    //       body: {
-    //         Class: cl.description,
-    //         NotificationType: obj.NotificationType,
-    //       },
-    //     },
-    //   };
-    //   const classTypeResponse = await addbyclassname(classTypeObj);
+      var classTypeObj = {
+        request: {
+          body: {
+            Class: cl.description,
+            NotificationType: obj.NotificationType,
+          },
+        },
+      };
+      const classTypeResponse = await addbyclassname(classTypeObj);
 
-    //   // const ClaTypeObjCamera = {
-    //   //   _id: classTypeResponse._id,
-    //   //   NotificationType: classTypeResponse.NotificationType,
-    //   //   createdAt: classTypeResponse.createdAt,
-    //   //   updatedAt: classTypeResponse.updatedAt,
-    //   //   __v: classTypeResponse.__v,
-    //   //   Class: classTypeResponse.Class._id,
-    //   //   id: classTypeResponse.Class.id,
-    //   // };
-    //   // claList.push(ClaTypeObjCamera);
+      // const ClaTypeObjCamera = {
+      //   _id: classTypeResponse._id,
+      //   NotificationType: classTypeResponse.NotificationType,
+      //   createdAt: classTypeResponse.createdAt,
+      //   updatedAt: classTypeResponse.updatedAt,
+      //   __v: classTypeResponse.__v,
+      //   Class: classTypeResponse.Class._id,
+      //   id: classTypeResponse.Class.id,
+      // };
+      // claList.push(ClaTypeObjCamera);
 
-    //   claList.push(classTypeResponse._id);
-    // }
+      claList.push(classTypeResponse._id);
+      //console.log(classTypeResponse);
+    }
 
     //create and post the camera object
     const cameraObj = {
