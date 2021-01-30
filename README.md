@@ -99,6 +99,7 @@ Requests documentation
             -> GET '/cameras' - lists all system's cameras
             -> GET '/cameras/count' - counts all system's cameras
             -> GET '/cameras/:id' - Gets one camera by id
+            -> GET '/cameras/mobile/:id' - Gets one camera by id with classes description
         POSTS
             -> POST '/cameras/seed' - Populates the DB with cameras
             -> POST '/cameras' - adds one camera to the system

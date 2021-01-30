@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/cameras/mobile/:id",
+      "handler": "camera.getMobile",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/cameras",
       "handler": "camera.create",
