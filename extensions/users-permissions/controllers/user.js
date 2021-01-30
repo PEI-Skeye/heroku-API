@@ -150,19 +150,43 @@ module.exports = {
     return claList;
   },
   async userlist(ctx) {
-    userList = [];
+    var userList = [];
+
     var users = await strapi.query("user", "users-permissions").find();
+    //console.log(users);
+
     for (var user of users) {
-      var obj = user;
+      //console.log(user);
       var cm = [];
-      for (var cam of user.cameras) {
-        var ct = getMobile({request: {body: cam._id}});
-        cam.classTypes = ct;
+      var userList = [];
+      for (var camera of user.cameras) {
+        let classDesc = [];
+        for (var obj of camera.classtypes) {
+          const clasT = await strapi.api.classtype.services.classtype.findOne({
+            _id: obj
+          });
+          const cl = await strapi.api.class.services.class.findOne({
+            id: clasT.Class,
+          });
+
+          classDesc.push({Class: cl.description,NotificationType: clasT.NotificationType});
+        }
+        
+        let cam = {
+          _id: camera._id,
+          name: camera.name,
+          macAddress: camera.macAddress,
+          createdAt: camera.createdAt,
+          updatedAt: camera.updatedAt,
+          id: camera.id,
+          classtypes: classDesc
+        }
+
         cm.push(cam);
       }
-      obj.cameras = cm;
-      userList.push(obj);
+      user.cameras = cm;
+      userList.push(user);
     }
-    return userList;
-  },
+    return users;
+  }
 };
