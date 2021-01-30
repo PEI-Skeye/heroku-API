@@ -147,4 +147,28 @@ module.exports = {
     // );
     return msg;
   },
+    async getMobile(ctx) {
+    let camera = await strapi.api.camera.services.camera.findOne(ctx.request.body);
+
+    let classDesc = [];
+    for (var obj of camera.classtypes) {
+      const cl = await strapi.api.class.services.class.findOne({
+        id: obj.Class,
+      });
+
+      classDesc.push({class: cl.description, NotificationType: obj.NotificationType});
+    }
+    
+    let cam = {
+      _id: camera._id,
+      name: camera.name,
+      macAddress: camera.macAddress,
+      createdAt: camera.createdAt,
+      updatedAt: camera.updatedAt,
+      id: camera.id,
+      classTypes: classDesc
+    }
+
+    return cam;
+  }
 };
