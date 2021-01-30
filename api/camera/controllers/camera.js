@@ -158,7 +158,7 @@ module.exports = {
 
       classDesc.push({class: cl.description, NotificationType: obj.NotificationType});
     }
-    
+
     let cam = {
       _id: camera._id,
       name: camera.name,

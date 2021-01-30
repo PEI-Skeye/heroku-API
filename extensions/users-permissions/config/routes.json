@@ -9,6 +9,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/users/list/",
+      "handler": "user.userlist",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/users/notifications/:id",
       "handler": "user.setNotiTrue",

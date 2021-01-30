@@ -7,6 +7,10 @@ const {
 const {
   addbyclassname,
 } = require("../../../api/classtype/controllers/classtype");
+const {
+  getMobile,
+} = require("../../../api/camera/controllers/camera");
+
 const endpoint = "http://skeye-backend.herokuapp.com";
 
 module.exports = {
@@ -144,5 +148,21 @@ module.exports = {
     console.log(userInfo);
 
     return claList;
+  },
+  async userlist(ctx) {
+    userList = [];
+    var users = await strapi.query("user", "users-permissions").find();
+    for (var user of users) {
+      var obj = user;
+      var cm = [];
+      for (var cam of user.cameras) {
+        var ct = getMobile({request: {body: cam._id}});
+        cam.classTypes = ct;
+        cm.push(cam);
+      }
+      obj.cameras = cm;
+      userList.push(obj);
+    }
+    return userList;
   },
 };
