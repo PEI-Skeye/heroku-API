@@ -151,10 +151,8 @@ module.exports = {
   },
   async userlist(ctx) {
     var userList = [];
-
     var users = await strapi.query("user", "users-permissions").find();
     //console.log(users);
-
     for (var user of users) {
       //console.log(user);
       var cm = [];
@@ -171,7 +169,6 @@ module.exports = {
 
           classDesc.push({Class: cl.description,NotificationType: clasT.NotificationType});
         }
-        
         let cam = {
           _id: camera._id,
           name: camera.name,
