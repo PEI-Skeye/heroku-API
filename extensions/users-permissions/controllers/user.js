@@ -185,5 +185,44 @@ module.exports = {
       userList.push(user);
     }
     return users;
+  },
+  async findClassDesc(ctx) {
+
+    const user = await strapi.plugins[
+      "users-permissions"
+    ].services.user.fetch({
+      _id: ctx.params.id,
+    });
+    console.log(user);
+
+
+    var cm = [];
+    for (var camera of user.cameras) {
+      let classDesc = [];
+      for (var obj of camera.classtypes) {
+        const clasT = await strapi.api.classtype.services.classtype.findOne({
+          _id: obj
+        });
+        const cl = await strapi.api.class.services.class.findOne({
+          id: clasT.Class,
+        });
+
+        classDesc.push({Class: cl.description,NotificationType: clasT.NotificationType});
+      }
+        
+      let cam = {
+        _id: camera._id,
+        name: camera.name,
+        macAddress: camera.macAddress,
+        createdAt: camera.createdAt,
+        updatedAt: camera.updatedAt,
+        id: camera.id,
+        classtypes: classDesc
+      }
+
+      cm.push(cam);
   }
+  user.cameras = cm;
+  return user;
+  },
 };
