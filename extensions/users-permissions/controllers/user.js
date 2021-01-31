@@ -232,7 +232,7 @@ module.exports = {
       _id: ctx.params.id,
     });
 
-    var date = Date.now(); 
+    var date = new Date(); 
     date.setMonth(date.getMonth()+1);
     let dateStr = date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
 
