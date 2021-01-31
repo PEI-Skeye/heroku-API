@@ -225,18 +225,16 @@ module.exports = {
   user.cameras = cm;
   return user;
   },
-    async payment(ctx) {
+  async payment(ctx) {
     const user = await strapi.plugins[
       "users-permissions"
     ].services.user.fetch({
       _id: ctx.params.id,
     });
 
-    var parts = user.paymentExpiration.split(/[ /-]/);
-    var myDate = new Date(parts[2], parts[1]-1, parts[0]); 
-    myDate.setMonth(myDate.getMonth()+1);
-    console.log(myDate);
-    let dateStr = myDate.getDate() + '-' + (myDate.getMonth()+1) + '-' + myDate.getFullYear();
+    var date = new Date.now(); 
+    date.setMonth(date.getMonth()+1);
+    let dateStr = date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
 
     return await strapi
       .query("user", "users-permissions")
