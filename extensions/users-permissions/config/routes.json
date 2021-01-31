@@ -39,6 +39,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "PUT",
+      "path": "/users/payment/:id",
+      "handler": "user.payment",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
