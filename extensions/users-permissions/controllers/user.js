@@ -224,11 +224,11 @@ module.exports = {
   },
   async payment(ctx) {
 
-    const user = await strapi.plugins[
+    /*const user = await strapi.plugins[
       "users-permissions"
     ].services.user.fetch({
       _id: ctx.params.id,
-    });
+    });*/
 
     var date = new Date(); 
     date.setMonth(date.getMonth()+1);
