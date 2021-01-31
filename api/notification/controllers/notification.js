@@ -41,7 +41,7 @@ module.exports = {
   async findnotibyid(ctx) {
     const axios = require("axios");
     // return notificationse;
-    console.log(ctx.params);
+
     const noti = await strapi.api.notification.services.notification.findOne({
       _id: ctx.params.id,
     });
@@ -49,7 +49,6 @@ module.exports = {
       _id: noti.classtype.Class,
     });
 
-    console.log(notiClass);
     const notif = {
       seen: noti.seen,
       _id: noti._id,
@@ -99,15 +98,14 @@ module.exports = {
           //   console.log(`----------------Notification Add Error: ${error}\n`);
           // });
 
-          console.log(noti);
 
           // var usr = await strapi.services.users.findOne({
           //   _id: userid,
           // });
-          console.log("\n\n\n\n\n\n\n\n\n----------------NOTIS\n");
+          //console.log("\n\n\n\n\n\n\n\n\n----------------NOTIS\n");
           notis.push(noti);
-          console.log(notis);
-          console.log("----------------NOTIS\n\n\n\n\n\n\n\n\n\n");
+          //console.log(notis);
+          //console.log("----------------NOTIS\n\n\n\n\n\n\n\n\n\n");
           //return "success";
         } //else return "Class not found";
       }
@@ -115,15 +113,15 @@ module.exports = {
     await axios
       .get(`${endpoint}/users/${userid}`)
       .then((usr) => {
-        console.log("----------------USER\n");
+        //console.log("----------------USER\n");
         for (var no of notis) {
           usr.data.notifications.push(no);
-          console.log("\n\n\n\n\n\n\n\n\n----------------USR DATA NOTIS\n");
-          console.log(usr.data.notifications);
-          console.log("----------------USR DATA NOTIS\n\n\n\n\n\n\n\n\n\n");
+          //console.log("\n\n\n\n\n\n\n\n\n----------------USR DATA NOTIS\n");
+          //console.log(usr.data.notifications);
+          //console.log("----------------USR DATA NOTIS\n\n\n\n\n\n\n\n\n\n");
         }
 
-        console.log(usr.data);
+        //console.log(usr.data);
         axios.put(`${endpoint}/users/${userid}`, usr.data).catch((error) => {
           console.log("----------------ERROR USER 2\n");
         });
