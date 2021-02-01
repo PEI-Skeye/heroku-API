@@ -139,20 +139,18 @@ module.exports = {
       _id: userId,
     });
     userInfo.cameras.push(usrCamObj);
+
     return await strapi
       .query("user", "users-permissions")
       .update({ id: userInfo._id }, { cameras: userInfo.cameras });
-    console.log("Response:\n");
-    console.log(userInfo);
 
     return claList;
   },
   async userlist(ctx) {
     var userList = [];
     var users = await strapi.query("user", "users-permissions").find();
-    //console.log(users);
+
     for (var user of users) {
-      //console.log(user);
       var cm = [];
       var userList = [];
       for (var camera of user.cameras) {
@@ -185,6 +183,7 @@ module.exports = {
       user.cameras = cm;
       userList.push(user);
     }
+
     return users;
   },
   async findClassDesc(ctx) {
@@ -194,6 +193,7 @@ module.exports = {
     console.log(user);
 
     var cm = [];
+
     for (var camera of user.cameras) {
       let classDesc = [];
       for (var obj of camera.classtypes) {
@@ -209,7 +209,6 @@ module.exports = {
           NotificationType: clasT.NotificationType,
         });
       }
-
       let cam = {
         _id: camera._id,
         name: camera.name,

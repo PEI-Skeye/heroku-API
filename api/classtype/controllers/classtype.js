@@ -11,9 +11,8 @@ module.exports = {
     const type = body.NotificationType;
     const classe = body.Class;
     const ClassTypes = await strapi.api.classtype.services.classtype.find();
-    console.log("Type1 = " + type);
-    console.log("Class1 = " + classe);
-    for (var classType of ClassTypes) {
+
+    /*for (var classType of ClassTypes) {
       var cls = classType.Class;
       console.log(
         `A comparar ${type} === ${classType.NotificationType} e \n ${classe} === ${classType.Class.description} `
@@ -28,19 +27,19 @@ module.exports = {
       //     console.log("Class2 = " + classType.Class.description);
       //     return classType;
       //   }
-    }
+    }*/
 
     const classtype = ClassTypes.find((obj) => {
       return obj.NotificationType === type && obj.Class.description === classe;
     });
-    console.log(classtype);
+
     if (classtype) {
       return classtype;
     } else {
       var cla = await strapi.api.class.services.class.findOne({
         description: classe,
       });
-      console.log(cla);
+
       var obj = { NotificationType: type, Class: cla._id };
       var response = await strapi.api.classtype.services.classtype.create(obj);
       return response;
@@ -59,6 +58,6 @@ module.exports = {
 
       await strapi.services.classtype.create(obj);
     }
-    return "Success, FINALLY";
+    return "Success";
   },
 };
