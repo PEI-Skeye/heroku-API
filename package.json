@@ -15,7 +15,7 @@
     "chokidar": "^3.4.3",
     "jquery": "^3.5.1",
     "readdirp": "^3.5.0",
-    "strapi": "3.3.3",
+    "strapi": "3.6.8",
     "strapi-admin": "^3.4.1",
     "strapi-connector-mongoose": "3.3.3",
     "strapi-plugin-content-manager": "3.3.3",
